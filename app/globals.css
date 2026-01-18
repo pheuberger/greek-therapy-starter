@@ -1,0 +1,201 @@
+@import "tailwindcss";
+@import "@radix-ui/colors/sand.css";
+@import "@radix-ui/colors/sand-alpha.css";
+@import "@radix-ui/colors/gray.css";
+@import "@radix-ui/colors/teal.css";
+@import "@radix-ui/colors/teal-alpha.css";
+@import "tw-animate-css";
+
+@plugin "@tailwindcss/typography";
+
+:root {
+  /* Radix Colors - Light mode */
+  --surface: var(--sand-2);
+  --surface-subtle: var(--sand-3);
+  --border-hover: var(--sand-7);
+  --text-primary: var(--gray-12);
+  --text-secondary: var(--gray-11);
+  --text-tertiary: var(--gray-10);
+  --accent-hover: var(--teal-10);
+  --accent-subtle: var(--teal-3);
+
+  /* shadcn/ui theme tokens aligned with Radix Colors */
+  --radius: 0.5rem;
+  --background: var(--sand-1);
+  --foreground: var(--gray-12);
+  --card: var(--sand-1);
+  --card-foreground: var(--gray-12);
+  --popover: var(--sand-1);
+  --popover-foreground: var(--gray-12);
+  --primary: var(--teal-9);
+  --primary-foreground: var(--sand-1);
+  --secondary: var(--sand-3);
+  --secondary-foreground: var(--gray-12);
+  --muted: var(--sand-3);
+  --muted-foreground: var(--gray-11);
+  --accent: var(--teal-4);
+  --accent-foreground: var(--gray-12);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: var(--sand-1);
+  --border: var(--sand-6);
+  --input: var(--sand-6);
+  --ring: var(--teal-9);
+  --chart-1: var(--teal-9);
+  --chart-2: var(--teal-8);
+  --chart-3: var(--sand-9);
+  --chart-4: var(--gray-9);
+  --chart-5: var(--teal-7);
+}
+
+@theme inline {
+  /* Typography */
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+  --font-size-base: 17px;
+  --line-height-base: 1.7;
+
+  /* Map Radix colors to Tailwind utilities */
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-subtle: var(--surface-subtle);
+  --color-border: var(--border);
+  --color-border-hover: var(--border-hover);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-subtle: var(--accent-subtle);
+
+  /* Expose individual Radix scales */
+  --color-sand-1: var(--sand-1);
+  --color-sand-2: var(--sand-2);
+  --color-sand-3: var(--sand-3);
+  --color-sand-4: var(--sand-4);
+  --color-sand-5: var(--sand-5);
+  --color-sand-6: var(--sand-6);
+  --color-sand-7: var(--sand-7);
+  --color-sand-8: var(--sand-8);
+  --color-sand-9: var(--sand-9);
+  --color-sand-10: var(--sand-10);
+  --color-sand-11: var(--sand-11);
+  --color-sand-12: var(--sand-12);
+
+  --color-gray-1: var(--gray-1);
+  --color-gray-2: var(--gray-2);
+  --color-gray-3: var(--gray-3);
+  --color-gray-4: var(--gray-4);
+  --color-gray-5: var(--gray-5);
+  --color-gray-6: var(--gray-6);
+  --color-gray-7: var(--gray-7);
+  --color-gray-8: var(--gray-8);
+  --color-gray-9: var(--gray-9);
+  --color-gray-10: var(--gray-10);
+  --color-gray-11: var(--gray-11);
+  --color-gray-12: var(--gray-12);
+
+  --color-teal-1: var(--teal-1);
+  --color-teal-2: var(--teal-2);
+  --color-teal-3: var(--teal-3);
+  --color-teal-4: var(--teal-4);
+  --color-teal-5: var(--teal-5);
+  --color-teal-6: var(--teal-6);
+  --color-teal-7: var(--teal-7);
+  --color-teal-8: var(--teal-8);
+  --color-teal-9: var(--teal-9);
+  --color-teal-10: var(--teal-10);
+  --color-teal-11: var(--teal-11);
+  --color-teal-12: var(--teal-12);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+body {
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography defaults for prose content */
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    color: var(--text-primary);
+    font-weight: 400;
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 120ms ease-in-out;
+  }
+
+  a:hover {
+    color: var(--accent-hover);
+  }
+}
+
+/* Prose customization for blog/long-form content */
+.prose {
+  max-width: 70ch;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  font-family: var(--font-serif);
+}
+
+/* Utility classes for consistent spacing */
+.section-padding {
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
