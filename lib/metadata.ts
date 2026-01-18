@@ -1,17 +1,9 @@
 import type { Metadata } from 'next'
 import { sanityFetch } from '@/sanity/lib/fetch'
+import { urlFor } from '@/sanity/lib/image'
 import { SITE_SETTINGS_QUERY } from './queries'
 import type { SiteSettings, SanityImage } from './types'
-import imageUrlBuilder from '@sanity/image-url'
-import { dataset, projectId } from '@/sanity/env'
 import { DEFAULT_LANGUAGE } from './language'
-
-// Image URL builder
-const builder = imageUrlBuilder({ projectId, dataset })
-
-export function urlFor(source: SanityImage) {
-  return builder.image(source)
-}
 
 // Get site URL from environment or default
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
