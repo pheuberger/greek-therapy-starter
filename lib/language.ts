@@ -28,30 +28,6 @@ export function parseSegments(segments: string[]): {
   }
 }
 
-export function parseListingSegments(segments: string[]): {
-  language: Language
-  slug: string | null
-} {
-  if (!segments || segments.length === 0) {
-    return {language: DEFAULT_LANGUAGE, slug: null}
-  }
-
-  const firstSegment = segments[0]
-  const isLanguageCode = AVAILABLE_LANGUAGES.includes(firstSegment as Language)
-
-  if (isLanguageCode) {
-    return {
-      language: firstSegment as Language,
-      slug: segments[1] || null,
-    }
-  }
-
-  return {
-    language: DEFAULT_LANGUAGE,
-    slug: firstSegment,
-  }
-}
-
 export function getLocalizedPath(path: string, language: Language): string {
   if (language === DEFAULT_LANGUAGE) {
     return path

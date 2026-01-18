@@ -6,10 +6,8 @@ import {PortableText} from 'next-sanity'
 import {sanityFetch} from '@/sanity/lib/fetch'
 import {
   PAGE_BY_SLUG_QUERY,
-  POSTS_LIST_QUERY,
   POST_BY_SLUG_QUERY,
   ALL_POSTS_LIST_QUERY,
-  THERAPY_OFFERINGS_LIST_QUERY,
   THERAPY_OFFERING_BY_SLUG_QUERY,
   ALL_THERAPY_OFFERINGS_LIST_QUERY,
   SITE_SETTINGS_QUERY,

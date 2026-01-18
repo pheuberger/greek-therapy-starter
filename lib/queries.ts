@@ -181,37 +181,10 @@ export const PAGE_BY_SLUG_QUERY = groq`*[_type == "page" && slug.current == $slu
   }
 }`
 
-// Check if page exists in specific language
-export const PAGE_EXISTS_QUERY = groq`count(*[_type == "page" && slug.current == $slug && language == $language]) > 0`
-
 // All pages slugs (for static generation)
 export const ALL_PAGES_SLUGS_QUERY = groq`*[_type == "page"] {
   "slug": slug.current,
   language
-}`
-
-// Post queries with language support
-export const POSTS_LIST_QUERY = groq`*[_type == "post" && language == $language] | order(publishedAt desc) {
-  _id,
-  language,
-  title,
-  slug,
-  excerpt,
-  publishedAt,
-  coverImage {
-    asset->,
-    alt
-  },
-  author-> {
-    name,
-    photo {
-      asset->
-    }
-  },
-  categories[]-> {
-    title,
-    slug
-  }
 }`
 
 // All posts including other languages (for listing with badges)
@@ -281,24 +254,6 @@ export const POST_BY_SLUG_QUERY = groq`*[_type == "post" && slug.current == $slu
 export const ALL_POSTS_SLUGS_QUERY = groq`*[_type == "post"] {
   "slug": slug.current,
   language
-}`
-
-// Therapy offering queries with language support
-export const THERAPY_OFFERINGS_LIST_QUERY = groq`*[_type == "therapyOffering" && language == $language] | order(title asc) {
-  _id,
-  language,
-  title,
-  slug,
-  summary,
-  coverImage {
-    asset->,
-    alt
-  },
-  sessionDetails {
-    duration,
-    format,
-    fees
-  }
 }`
 
 // All therapy offerings including other languages
